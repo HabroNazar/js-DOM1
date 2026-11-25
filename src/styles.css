@@ -1,0 +1,186 @@
+:root {
+  --desk: #c4c8bf;
+  --body: #e3e1da;
+  --body-edge: #a9a79d;
+  --ink: #26261f;
+  --paper: #f4f3ee;
+  --graphite: #3b3b36;
+  --mid: #8d8b82;
+  --accent: #d9541e;
+  --lcd: #d5d8c6;
+  --error: #b3261e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background: var(--desk);
+  font-family: "Archivo", system-ui, sans-serif;
+  color: var(--ink);
+}
+
+.calculator {
+  width: 100%;
+  max-width: 380px;
+  padding: 22px 22px 26px;
+  background: var(--body);
+  border: 1px solid var(--body-edge);
+  border-bottom-width: 7px;
+  border-radius: 10px;
+}
+
+.calculator__title {
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--body-edge);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.calculator__fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.field__label {
+  font-size: 0.8rem;
+  color: #5b5a52;
+}
+
+.field__input {
+  width: 100%;
+  padding: 6px 0;
+  font: 600 1.45rem "Chivo Mono", ui-monospace, monospace;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--body-edge);
+  border-radius: 0;
+  caret-color: var(--accent);
+}
+
+.field__input::placeholder {
+  color: var(--mid);
+}
+
+.field__input:focus-visible {
+  outline: none;
+}
+
+.field__input.is-active {
+  border-bottom-color: var(--ink);
+}
+
+.field__input.is-invalid {
+  border-bottom-color: var(--error);
+  color: var(--error);
+}
+
+.display {
+  min-height: 96px;
+  margin: 20px 0;
+  padding: 10px 14px;
+  background: var(--lcd);
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+}
+
+.display__label {
+  display: block;
+  font-size: 0.8rem;
+  color: #4d4d43;
+}
+
+.display__value {
+  display: block;
+  margin-top: 2px;
+  font: 600 2.1rem "Chivo Mono", ui-monospace, monospace;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.display__error {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--error);
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.key {
+  height: 54px;
+  font: 500 1.35rem "Archivo", system-ui, sans-serif;
+  border: 1px solid var(--ink);
+  border-bottom-width: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.key:active {
+  border-bottom-width: 1px;
+  transform: translateY(3px);
+}
+
+.key:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.key--digit {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.key--zero {
+  grid-column: span 2;
+}
+
+.key--op {
+  background: var(--graphite);
+  color: var(--paper);
+  font-size: 1.6rem;
+}
+
+.key--util {
+  background: var(--mid);
+  color: var(--paper);
+  font-size: 1.1rem;
+}
+
+#clear-all,
+#clear-field {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+@media (hover: hover) {
+  .key:hover {
+    filter: brightness(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .key:active {
+    transform: none;
+  }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Калькулятор</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;600&family=Archivo:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="calculator">
+      <h1 class="calculator__title">Калькулятор</h1>
+
+      <div class="calculator__fields">
+        <label class="field" for="first-number">
+          <span class="field__label">Перше число</span>
+          <input
+            class="field__input"
+            id="first-number"
+            type="text"
+            inputmode="none"
+            autocomplete="off"
+            placeholder="0"
+          />
+        </label>
+
+        <label class="field" for="second-number">
+          <span class="field__label">Друге число</span>
+          <input
+            class="field__input"
+            id="second-number"
+            type="text"
+            inputmode="none"
+            autocomplete="off"
+            placeholder="0"
+          />
+        </label>
+      </div>
+
+      <div class="display" aria-live="polite">
+        <span class="display__label">Результат</span>
+        <output class="display__value" id="result">—</output>
+        <p class="display__error" id="error" hidden></p>
+      </div>
+
+      <div class="keypad" role="group" aria-label="Клавіатура калькулятора">
+        <button class="key key--util" id="clear-all" type="button" aria-label="Очистити все">AC</button>
+        <button class="key key--util" id="clear-field" type="button" aria-label="Очистити поле">C</button>
+        <button class="key key--util" id="backspace" type="button" aria-label="Видалити останній символ">⌫</button>
+        <button class="key key--op key--divide" id="divide" type="button" aria-label="Поділити">÷</button>
+
+        <button class="key key--digit" type="button" data-value="7">7</button>
+        <button class="key key--digit" type="button" data-value="8">8</button>
+        <button class="key key--digit" type="button" data-value="9">9</button>
+        <button class="key key--op key--multiply" id="multiply" type="button" aria-label="Помножити">×</button>
+
+        <button class="key key--digit" type="button" data-value="4">4</button>
+        <button class="key key--digit" type="button" data-value="5">5</button>
+        <button class="key key--digit" type="button" data-value="6">6</button>
+        <button class="key key--op key--subtract" id="subtract" type="button" aria-label="Відняти">−</button>
+
+        <button class="key key--digit" type="button" data-value="1">1</button>
+        <button class="key key--digit" type="button" data-value="2">2</button>
+        <button class="key key--digit" type="button" data-value="3">3</button>
+        <button class="key key--op key--add" id="add" type="button" aria-label="Додати">+</button>
+
+        <button class="key key--digit key--zero" type="button" data-value="0">0</button>
+        <button class="key key--digit" id="decimal" type="button" aria-label="Десяткова кома">,</button>
+        <button class="key key--digit" id="negate" type="button" aria-label="Змінити знак">±</button>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
